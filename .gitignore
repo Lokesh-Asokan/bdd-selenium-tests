@@ -83,7 +83,7 @@ target
 *.ipr
 
 /.vscode/
-src/main/java/uk/co/ee/myee/wrangler/wrangler_config.properties
+src/main/java.com.test.loki/uk/co/ee/myee/wrangler/wrangler_config.properties
 src/main/webapp/META-INF/core/fallback_config.properties
 src/main/webapp/META-INF/stub/stub_config.properties
 
