@@ -14,3 +14,7 @@ Eclipse
 Eclipse Plugins: Maven and Cucumber
 Installation In order to start using the project you need to create your own Fork on Github and then clone the project.
 git clone https://github.com/vinodkrane/cucumber-testing-framework-using-selenium-java-maven.git
+
+![image](https://user-images.githubusercontent.com/18717702/118224507-3a7a4200-b47b-11eb-812a-ea3cc434f5b3.png)
+
+├───target
