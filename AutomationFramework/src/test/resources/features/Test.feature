@@ -19,8 +19,8 @@ Feature: Purchase and manage account online
     When I naviagte to personal information page
     And I update the first name field
     And I save the information
-    Then I Should see my updated first name is reflected in My account
+    Then I Should see the personal information update for first name is successful
 
     Examples:
     |username|password|
-    |loginid|password|
+    |username|password|

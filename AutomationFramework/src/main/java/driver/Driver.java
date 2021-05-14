@@ -28,18 +28,16 @@ public class Driver extends BasePage {
     }
 
     @After
-    public void closeDriver(){
-            System.out.println("System quit and be happy dude");
-        getDriver().quit();
+    public static void closeDriver(){
+        System.out.println("System quit and be happy dude");
+        //getDriver().manage().deleteAllCookies();
+        driver.quit();
         log.info("Driver closed");
     }
-    public static void open(String url) {
-        System.out.println("Open url");
-        getDriver().get(url);
-    }
 
-    public static String currentUrl() {
-        return getDriver().getCurrentUrl();
+    public void open(String url) {
+        System.out.println("Open url");
+        driver.get(url);
     }
 
     /**
@@ -47,21 +45,6 @@ public class Driver extends BasePage {
      *
      * @return The title of the current page
      */
-    public static String title() {
-        System.out.println("get your title");
-        return getDriver().getTitle();
-    }
 
-    public static void back() {
-        getDriver().navigate().back();
-    }
-
-    public static void forward() {
-        getDriver().navigate().forward();
-    }
-
-    public static void refresh() {
-        getDriver().navigate().refresh();
-    }
 
 }

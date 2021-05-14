@@ -26,7 +26,6 @@ public class DesktopLoginPage extends BasePage implements LoginPage {
 
     @Override
     public void enterUserName (String email){
-       // waitForElementVisible(emailInputBox);
         setTextAs(emailInputBox, email);
     }
 
