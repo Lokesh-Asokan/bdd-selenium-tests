@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/test.feature",
         glue= {"com.test.lokesh.stepDefs"},
-        tags = "@test"
+        tags = "@hooks_web"
 )
 public class SampleRunner {
 }

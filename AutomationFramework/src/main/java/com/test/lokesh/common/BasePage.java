@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 public class BasePage {
 
     protected  static final Logger log = LoggerFactory.getLogger(BasePage.class.getName());
-    private WebDriver driver = Driver.driver;
+    protected WebDriver driver = Driver.getDriver();
 
     public BasePage() {
         PageFactory.initElements(driver, this);

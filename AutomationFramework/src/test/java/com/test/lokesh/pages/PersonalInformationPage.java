@@ -9,10 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PersonalInformationPage extends BasePage {
 
-    //private WebDriver driver = Driver.getDriver();
+    private WebDriver driver = Driver.getDriver();
 
     public PersonalInformationPage(){
-        PageFactory.initElements(Driver.driver, this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(id="firstname")

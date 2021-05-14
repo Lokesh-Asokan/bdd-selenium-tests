@@ -1,6 +1,7 @@
 package com.test.lokesh.stepDefs;
 
 import com.test.lokesh.pages.MyAccountPage;
+import com.test.lokesh.pages.OrderHistoryPage;
 import com.test.lokesh.pages.PersonalInformationPage;
 import com.test.lokesh.context.Context;
 import com.test.lokesh.driver.Driver;
@@ -19,6 +20,7 @@ public class MyAccountStepDef {
     private Context context = new Context();
     private MyAccountMission myAccountMission = new MyAccountMission();
     private PersonalInformationPage personalInformationPage = new PersonalInformationPage();
+    private OrderHistoryPage orderHistoryPage= new OrderHistoryPage();
     private static final String FIRSTNAME = "something";
     private static final String PAASSWORD = ReadProperties.getFromPropertyFile("password");
     private Driver driver = new Driver();
@@ -54,6 +56,8 @@ public class MyAccountStepDef {
 
     @Then("I should see my relavant order details of my current purchase")
     public void i_should_see_my_relavant_order_details_of_my_current_purchase() {
+        System.out.println(orderHistoryPage.getOrderDate());
+        Assert.assertTrue("Order Reference number from the table is not same", orderHistoryPage.getOrderDate().contains(context.getContextParam("orderPlacedTime")));
         context.getContextParam("actualCardCount");
     }
 

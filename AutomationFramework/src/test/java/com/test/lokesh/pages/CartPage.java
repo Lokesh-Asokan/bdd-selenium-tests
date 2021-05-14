@@ -9,10 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CartPage extends BasePage {
 
-    //private WebDriver driver = Driver.driver;
+    private WebDriver driver = Driver.driver;
 
     public CartPage(){
-        PageFactory.initElements(Driver.driver, this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(css = "p[class='cart_navigation clearfix']>a[title='Proceed to checkout']")

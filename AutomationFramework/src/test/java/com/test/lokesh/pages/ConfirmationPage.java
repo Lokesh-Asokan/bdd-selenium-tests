@@ -11,10 +11,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ConfirmationPage extends BasePage {
-    //private WebDriver driver = Driver.driver;
+    private WebDriver driver = Driver.driver;
 
     public ConfirmationPage(){
-        PageFactory.initElements(Driver.driver, this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(css = "span[class='price'] > strong")
@@ -36,7 +36,6 @@ public class ConfirmationPage extends BasePage {
     public String getCurrentOrderDate(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/mm/yyyy");
         LocalDateTime now = LocalDateTime.now();
-        System.out.println(dtf.format(now));
         return  dtf.format(now).toString();
     }
 

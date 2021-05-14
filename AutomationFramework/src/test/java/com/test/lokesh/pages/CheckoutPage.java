@@ -8,10 +8,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class CheckoutPage extends BasePage {
-    //private WebDriver driver = Driver.getDriver();
+    private WebDriver driver = Driver.getDriver();
 
     public CheckoutPage(){
-        PageFactory.initElements(Driver.driver, this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(name = "processAddress")

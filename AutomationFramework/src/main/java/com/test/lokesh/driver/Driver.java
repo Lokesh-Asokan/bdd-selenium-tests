@@ -12,27 +12,27 @@ public class Driver extends BasePage {
 
     public static WebDriver driver;
 
-    @Before
-    public static WebDriver getDriver(){
+   @Before
+    public static void initializeDriver(){
         log.info("Initiating the Driver");
         driver = DriverFactory.getDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        return driver;
     }
 
-/*    public static WebDriver getDriver(){
+    public static WebDriver getDriver(){
         if (driver == null){
             initializeDriver();
         }
         return driver;
-    }*/
+    }
 
-    @After
+   @After
     public static void closeDriver(){
         log.info("System quit and be happy dude");
         driver.manage().deleteAllCookies();
-        driver.quit();
+        getDriver().close();
+        getDriver().quit();
         log.info("Driver closed");
     }
 

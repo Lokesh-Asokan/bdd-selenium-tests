@@ -9,10 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MyAccountPage extends BasePage {
 
-    //private WebDriver driver = Driver.getDriver();
+    private WebDriver driver = Driver.getDriver();
 
     public MyAccountPage(){
-        PageFactory.initElements(Driver.driver, this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(css = "a[title='Orders']")

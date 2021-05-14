@@ -9,10 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class GalleryPage extends BasePage {
 
-    //private WebDriver driver = Driver.getDriver();
+    private WebDriver driver = Driver.getDriver();
 
     public GalleryPage(){
-        PageFactory.initElements(Driver.driver, this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(css = "li div[class='product-container']")
