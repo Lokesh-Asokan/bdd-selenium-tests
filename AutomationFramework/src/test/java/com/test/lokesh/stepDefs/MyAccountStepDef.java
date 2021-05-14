@@ -1,5 +1,6 @@
 package com.test.lokesh.stepDefs;
 
+import com.test.lokesh.pages.ConfirmationPage;
 import com.test.lokesh.pages.MyAccountPage;
 import com.test.lokesh.pages.OrderHistoryPage;
 import com.test.lokesh.pages.PersonalInformationPage;
@@ -24,6 +25,7 @@ public class MyAccountStepDef {
     private static final String FIRSTNAME = "something";
     private static final String PAASSWORD = ReadProperties.getFromPropertyFile("password");
     private Driver driver = new Driver();
+    private ConfirmationPage confirmationPage = new ConfirmationPage();
 
     @When("I naviagte to personal information page")
     public void i_naviagte_to_personal_information_page() {
@@ -56,9 +58,9 @@ public class MyAccountStepDef {
 
     @Then("I should see my relavant order details of my current purchase")
     public void i_should_see_my_relavant_order_details_of_my_current_purchase() {
-        System.out.println(orderHistoryPage.getOrderDate());
-        Assert.assertTrue("Order Reference number from the table is not same", orderHistoryPage.getOrderDate().contains(context.getContextParam("orderPlacedTime")));
-        context.getContextParam("actualCardCount");
+       Assert.assertTrue("Order price does not match the expected result", orderHistoryPage.getActualPriceColumn().contains(confirmationPage.getExpectedPaymentAmount()));
+       Assert.assertTrue("Order Reference number from the table is not same", orderHistoryPage.getOrderDate().contains(confirmationPage.getExpectedOrderDate()));
+       Assert.assertTrue("Order Reference number from the table is not same", orderHistoryPage.getActualOrderReferenceNumber().contains(confirmationPage.getExpectedorderReferenceNumber()));
     }
 
 }

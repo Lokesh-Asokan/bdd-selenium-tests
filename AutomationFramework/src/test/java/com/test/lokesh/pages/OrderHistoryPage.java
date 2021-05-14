@@ -26,15 +26,29 @@ public class OrderHistoryPage extends BasePage {
     @FindBy(css = "td[class='history_price']")
     public List<WebElement> totalPriceColumn;
 
-    public String getOrderReferenceNumber(){
-       return orderReferenceNumberColumn.stream().findFirst().toString();
+    public String getActualOrderReferenceNumber(){
+        String orderRefNumber = "";
+        for(int i=0; i<orderReferenceNumberColumn.size();i++){
+            orderRefNumber = dateTextColumn.get(0).getText();
+        }
+        return orderRefNumber;
     }
 
     public String getOrderDate(){
-        waitForElementVisible(dateTextColumn.stream().findFirst().get());
-        return dateTextColumn.stream().findFirst().toString();
+        String date = "";
+        for(int i=0; i<dateTextColumn.size();i++){
+            date = dateTextColumn.get(0).getText();
+        }
+        return date;
     }
 
+    public String getActualPriceColumn(){
+        String price = "";
+        for(int i=0; i<totalPriceColumn.size();i++){
+            price = totalPriceColumn.get(0).getText();
+        }
+        return price;
+    }
 
 
 }

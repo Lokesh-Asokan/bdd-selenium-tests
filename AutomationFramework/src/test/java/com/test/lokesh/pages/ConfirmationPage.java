@@ -12,6 +12,8 @@ import java.time.format.DateTimeFormatter;
 
 public class ConfirmationPage extends BasePage {
     private WebDriver driver = Driver.driver;
+    public String paymentPrice="";
+    public String orderReferenceNumber="";
 
     public ConfirmationPage(){
         PageFactory.initElements(driver, this);
@@ -20,24 +22,33 @@ public class ConfirmationPage extends BasePage {
     @FindBy(css = "span[class='price'] > strong")
     private WebElement paymentAmountTextBlock;
 
-    @FindBy(css = "div>br:nth-child(7)")
+    @FindBy(css = "div.box.order-confirmation")
     private WebElement orderReferenceTextBlock;
 
-    public String getPaymentAmount(){
-        return getText(paymentAmountTextBlock);
+    public String getExpectedPaymentAmount(){
+        return paymentPrice;
+    }
+    public void getPaymentText(){
+         paymentPrice = getText(paymentAmountTextBlock);
     }
 
     public String getorderReferenceTextBlock(){
-        //Below substing grabs only the order reference number
         String ref =getText(orderReferenceTextBlock);
-        return ref.substring(ref.lastIndexOf(" ") + 1, ref.lastIndexOf("."));
+        String temp[] = ref.split("-");
+        String finalTemp[] = temp[4].split(" ");
+        orderReferenceNumber = finalTemp[9].replace(".","");
+         return orderReferenceNumber;
     }
 
-    public String getCurrentOrderDate(){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+    public String getExpectedorderReferenceNumber(){
+        return orderReferenceNumber;
+    }
+
+    public String getExpectedOrderDate(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         LocalDateTime now = LocalDateTime.now();
-        return  dtf.format(now).toString();
+        System.out.println("Now is here-----"+now);
+        return  dtf.format(now);
     }
-
 
 }

@@ -19,8 +19,7 @@ public class CheckoutStepDef {
         driver.open(URLMapper.urlBuilder("gallery"));
         orderMission.selectTshirtFromGallery();
         orderMission.proceedToConfirmationPage();
-        context.setContextParam("actualCardCount", confirmationPage.getPaymentAmount());
-        context.setContextParam("orderPlacedTime", confirmationPage.getCurrentOrderDate());
-        //context.setContextParam("orderReferenceNumber", confirmationPage.getorderReferenceTextBlock());
+        confirmationPage.getorderReferenceTextBlock();
+        confirmationPage.getPaymentText();
     }
 }
