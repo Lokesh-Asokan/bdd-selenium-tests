@@ -22,6 +22,9 @@ Consolidated report for both test- https://reports.cucumber.io/reports/4f8f3115-
 Scenario1 - https://reports.cucumber.io/reports/183b1c6d-4e43-4913-84cd-333e47308b76
 Scenario2 - https://reports.cucumber.io/reports/17ad0021-8d03-422e-b180-0f709c277e3b
 
+**How to run the Tests?**
+mvn clean install -U -Dtags='@Automation' -Dthreads=1
+
 **Further Improvements:**
 Tooling improvements:
 1. Grid Solution:
@@ -36,7 +39,7 @@ Note: When we merge these tools and invoke part of the functional test, this all
 
 Technical improvements:
 1. Json to maintain and manage test datas
-2. To manage stabilise the reusable instances to avoid performance issue
+2. To stabilise the reusable instances to avoid performance issue
 3. To further extend the haspmap implementaion done for setContext
 4. Good logger capability across classes 
 
