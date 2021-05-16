@@ -6,9 +6,12 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features/Scenario1.feature",
-        glue= {"com.test.lokesh.stepDefs"},
-        tags = "@hooks_web"
+        features = "src/test/resources/features",
+        glue= {"com.test.lokesh.stepDefs", "com.test.lokesh.hooks"},
+        plugin = { "pretty", "json:target/cucumber-reports/reports.json",
+                "html:target/cucumber-reports/cucumber.html"},
+        monochrome = true,
+        tags = "@Automation"
 )
 public class SampleRunner {
 }

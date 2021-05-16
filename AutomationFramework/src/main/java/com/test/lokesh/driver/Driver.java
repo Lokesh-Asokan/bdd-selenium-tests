@@ -12,7 +12,6 @@ public class Driver extends BasePage {
 
     public static WebDriver driver;
 
-   @Before
     public static void initializeDriver(){
         log.info("Initiating the Driver");
         driver = DriverFactory.getDriver();
@@ -27,11 +26,10 @@ public class Driver extends BasePage {
         return driver;
     }
 
-   @After
-    public static void closeDriver(){
+    public static void tearDown(){
         log.info("System quit and be happy dude");
         driver.manage().deleteAllCookies();
-        getDriver().close();
+       // getDriver().close();
         getDriver().quit();
         log.info("Driver closed");
     }

@@ -25,6 +25,8 @@ public class URLMapper {
             case "myaccount":
                 getUrl = BASEURL + MYACCOUNTURL;
                 break;
+            case "logout":
+                getUrl = BASEURL + LOGOUTURL;
             default:
                 throw new IllegalArgumentException("Invalid url parameter" + url);
         }
