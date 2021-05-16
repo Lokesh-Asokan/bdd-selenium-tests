@@ -6,6 +6,7 @@ public class URLMapper {
     private static String LOGINURL = ReadProperties.getFromPropertyFile("login_URL");
     private static String GALLERYURL = ReadProperties.getFromPropertyFile("gallery_URL");
     private static String MYACCOUNTURL = ReadProperties.getFromPropertyFile("myaccount_URL");
+    private static String LOGOUTURL = ReadProperties.getFromPropertyFile("logout_URL");
 
 
     public static String urlBuilder(String url){
