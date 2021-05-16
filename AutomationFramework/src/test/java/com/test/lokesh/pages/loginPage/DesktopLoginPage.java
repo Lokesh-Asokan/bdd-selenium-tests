@@ -15,7 +15,7 @@ public class DesktopLoginPage extends BasePage implements LoginPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id = "email")
+    @FindBy(id = "emal")
     private WebElement emailInputBox;
 
     @FindBy(id = "passwd")

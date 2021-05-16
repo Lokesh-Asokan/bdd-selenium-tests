@@ -3,6 +3,9 @@ package com.test.lokesh.driver;
 import com.test.lokesh.common.BasePage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -26,8 +29,9 @@ public class Driver extends BasePage {
         return driver;
     }
 
-    public static void tearDown(){
+    public static void tearDown(Scenario scenario){
         log.info("System quit and be happy dude");
+        takeScreenshot(scenario);
         driver.manage().deleteAllCookies();
        // getDriver().close();
         getDriver().quit();
@@ -37,6 +41,16 @@ public class Driver extends BasePage {
     public void open(String url) {
         log.info("Open url" + url);
         driver.get(url);
+    }
+
+    public static void takeScreenshot(Scenario scenario){
+        if (scenario.isFailed()) {
+            // Take a screenshot...
+            final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            // embed it in the report.
+            scenario.attach(screenshot, "image/png", scenario.getName());
+           // scenario.embed(screenshot, "image/png");
+        }
     }
 
     /**

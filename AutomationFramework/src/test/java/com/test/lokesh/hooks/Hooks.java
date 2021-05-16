@@ -4,6 +4,7 @@ import com.test.lokesh.driver.Driver;
 import com.test.lokesh.utils.URLMapper;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 
 public class Hooks {
 
@@ -13,8 +14,8 @@ public class Hooks {
     }
 
     @After
-    public void clearCookies() throws Exception {
-        Driver.tearDown();
+    public void quitDriver(Scenario scenario) throws Exception {
+        Driver.tearDown(scenario);
     }
 
 }
