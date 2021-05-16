@@ -31,7 +31,9 @@ public class Driver extends BasePage {
 
     public static void tearDown(Scenario scenario){
         log.info("System quit and be happy dude");
-        takeScreenshot(scenario);
+        if(scenario.isFailed()){
+            takeScreenshot(scenario);
+        }
         driver.manage().deleteAllCookies();
        // getDriver().close();
         getDriver().quit();
@@ -44,13 +46,11 @@ public class Driver extends BasePage {
     }
 
     public static void takeScreenshot(Scenario scenario){
-        if (scenario.isFailed()) {
             // Take a screenshot...
             final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             // embed it in the report.
-            scenario.attach(screenshot, "image/png", scenario.getName());
+            scenario.attach(screenshot, "image/png", "take screenshot");
            // scenario.embed(screenshot, "image/png");
-        }
     }
 
     /**
