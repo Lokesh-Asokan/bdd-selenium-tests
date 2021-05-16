@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class DesktopLoginPage extends BasePage implements LoginPage {
 
-   private WebDriver driver = Driver.driver;
+   private WebDriver driver = Driver.getDriver();
 
     public DesktopLoginPage(){
         PageFactory.initElements(driver, this);

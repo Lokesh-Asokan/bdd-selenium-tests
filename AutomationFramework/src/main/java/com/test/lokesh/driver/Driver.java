@@ -13,20 +13,20 @@ import java.util.concurrent.TimeUnit;
 public class Driver extends BasePage {
     DriverFactory driverFactory;
 
-    public static WebDriver driver;
+    public static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 
     public static void initializeDriver(){
         log.info("Initiating the Driver");
-        driver = DriverFactory.getDriver();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
+        driver.set(DriverFactory.getDriver());
+        driver.get().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.get().manage().window().maximize();
     }
 
     public static WebDriver getDriver(){
-        if (driver == null){
+        if (driver.get() == null){
             initializeDriver();
         }
-        return driver;
+        return driver.get();
     }
 
     public static void tearDown(Scenario scenario){
@@ -34,7 +34,7 @@ public class Driver extends BasePage {
         if(scenario.isFailed()){
             takeScreenshot(scenario);
         }
-        driver.manage().deleteAllCookies();
+        driver.get().manage().deleteAllCookies();
        // getDriver().close();
         getDriver().quit();
         log.info("Driver closed");
@@ -42,12 +42,12 @@ public class Driver extends BasePage {
 
     public void open(String url) {
         log.info("Open url" + url);
-        driver.get(url);
+        driver.get().get(url);
     }
 
     public static void takeScreenshot(Scenario scenario){
             // Take a screenshot...
-            final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            final byte[] screenshot = ((TakesScreenshot) driver.get()).getScreenshotAs(OutputType.BYTES);
             // embed it in the report.
             scenario.attach(screenshot, "image/png", "take screenshot");
            // scenario.embed(screenshot, "image/png");

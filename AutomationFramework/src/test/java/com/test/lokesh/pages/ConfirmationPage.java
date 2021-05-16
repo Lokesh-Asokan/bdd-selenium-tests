@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ConfirmationPage extends BasePage {
-    private WebDriver driver = Driver.driver;
+    private WebDriver driver = Driver.getDriver();
     public String paymentPrice="";
     public String orderReferenceNumber="";
 
