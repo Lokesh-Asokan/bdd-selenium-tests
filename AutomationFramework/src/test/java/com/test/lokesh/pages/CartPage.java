@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CartPage extends BasePage {
 
-    private WebDriver driver = Driver.driver;
+    private WebDriver driver = Driver.getDriver();
 
     public CartPage(){
         PageFactory.initElements(driver, this);

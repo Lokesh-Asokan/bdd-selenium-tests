@@ -35,16 +35,24 @@
                 </configuration>
             </plugin>
 
-<!--            <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.0.0-M4</version>
+                <version>2.16</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
-                    <parallel>methods</parallel>
-                    <threadCount>1</threadCount>
-                    <perCoreThreadCount>false</perCoreThreadCount>
+                    <skipITs>false</skipITs>
+                    <threadCount>${threads}</threadCount>
+                    <parallel>both</parallel>
                     <includes>
-                        <include>**/*sampleRunner.java</include>
+                        <include>**/SampleRunner.java</include>
                     </includes>
                     <runOrder>alphabetical</runOrder>
                     <argLine>-Duser.language=en</argLine>
@@ -52,22 +60,11 @@
                     <argLine>-XX:MaxPermSize=256m</argLine>
                     <argLine>-Dfile.encoding=UTF-8</argLine>
                     <systemPropertyVariables>
-                        <env>default</env>
                         <project.dir>${basedir}</project.dir>
-                        <cucumber.options>${cucumberOptions}</cucumber.options>
+                        <cucumber.filter.tags>${tags}</cucumber.filter.tags>
                     </systemPropertyVariables>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>failsafe-integration-test</id>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>integration-test</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>-->
-
+            </plugin>
         </plugins>
     </build>
 
@@ -129,7 +126,6 @@
             <version>4.13</version>
             <scope>compile</scope>
         </dependency>
-
     </dependencies>
 
 </project>
