@@ -17,11 +17,6 @@ Installation In order to start using the project you need to create your own For
 
 ├───target
 
-**Execution Reports:**
-Consolidated report for both test- https://reports.cucumber.io/reports/4f8f3115-5386-4fd5-821f-46cf9655669c
-Scenario1 - https://reports.cucumber.io/reports/183b1c6d-4e43-4913-84cd-333e47308b76
-Scenario2 - https://reports.cucumber.io/reports/17ad0021-8d03-422e-b180-0f709c277e3b
-
 **How to run the Tests?**
 mvn clean install -U -Dtags='@Automation' -Dthreads=1
 
