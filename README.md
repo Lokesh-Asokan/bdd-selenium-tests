@@ -20,6 +20,9 @@ Installation In order to start using the project you need to create your own For
 **How to run the Tests?**
 mvn clean install -U -Dtags='@Automation' -Dthreads=1
 
+![image](https://user-images.githubusercontent.com/18717702/132341517-2c19234c-1862-4071-b9ae-d9a530c4af63.png)
+
+
 **Further Improvements:**
 Tooling improvements:
 1. Grid Solution:
